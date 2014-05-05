@@ -1,0 +1,25 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013" xmlns:WpfViewers="clr-namespace:Microsoft.Samples.Kinect.WpfViewers;assembly=Microsoft.Samples.Kinect.WpfViewers" x:Class="mykinectproj_3.MainWindow"
+        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+    <Grid Height="319" VerticalAlignment="Bottom">
+
+        <WpfViewers:KinectColorViewer HorizontalAlignment="Left" Height="240" Margin="10,55,0,0" VerticalAlignment="Top" Width="320">
+            <WpfViewers:KinectColorViewer.KinectSensorManager>
+                <WpfViewers:KinectSensorManager KinectSensor="{Binding KinectSensorChooser.Kinect, ElementName=sensorChooserUI, Mode=OneWay}"/>
+            </WpfViewers:KinectColorViewer.KinectSensorManager>
+        </WpfViewers:KinectColorViewer>
+
+        <WpfViewers:KinectSkeletonViewer HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="320" Canvas.Left="27" Canvas.Top="48" Margin="10,50,0,0">
+            <WpfViewers:KinectSkeletonViewer.KinectSensorManager>
+                <WpfViewers:KinectSensorManager SkeletonStreamEnabled="True" KinectSensor="{Binding KinectSensorChooser.Kinect, ElementName=sensorChooserUI, Mode=OneWay}"/>
+            </WpfViewers:KinectSkeletonViewer.KinectSensorManager>
+        </WpfViewers:KinectSkeletonViewer>
+        <CheckBox x:Name="controlMouse" Content="control mouse?&#xD;&#xA;" HorizontalAlignment="Left" Margin="339,37,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="detectedGestures" FontSize="10" Margin="335,168,10,24"/>
+        <CheckBox Content="You are sitting?" HorizontalAlignment="Left" Margin="339,73,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+        <k:KinectSensorChooserUI x:Name="sensorChooserUI" HorizontalAlignment="Left" Margin="217,10,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
